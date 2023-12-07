@@ -7,29 +7,21 @@
       <div class="left_header-title">スキル一覧
       </div>
       <div class="create-skill">
-      <%= link_to "スキルを登録する", "#" %>
+        <%= link_to "スキルを登録する", new_skill_path %>
       </div>
     </div>
 
     <div class="skills">
-      <%# <% current_user.skills.each do |skill|%>
-      <div class="skill">
-        <div class="skill-name">
-          <%= link_to 'Ruby', "#" %>
+      <% current_user.skills.each do |skill|%>
+        <div class="skill">
+          <div class="skill-name">
+            <%= link_to skill.skill_name, "#" %>
+          </div>
+          <div class="skill-status">
+            <%= skill.skill_status.name %>
+          </div>
         </div>
-        <div class="skill-status">
-          勉強中
-        </div>
-      </div>
-      <div class="skill">
-        <div class="skill-name">
-          <%= link_to 'CSS', "#" %>
-        </div>
-        <div class="skill-status">
-          勉強中
-        </div>
-      <%# <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 
@@ -44,7 +36,7 @@
       <div class="main_right-header">
         <div class="main_right-text">
           <%# <%= @skill.status %>ステータス  ：勉強中<br>
-          <%# <%= @skill.stars %>スキルレベル：★★★☆☆
+          <%# <%= @skill.stars %>スキルレベル：★☆☆☆☆
         </div>
         <div class="header-button">
           <%= link_to "ステータスを変更する", "#" %>
