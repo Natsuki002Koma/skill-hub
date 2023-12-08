@@ -39,7 +39,7 @@
           <%# <%= @skill.stars %>スキルレベル：★☆☆☆☆
         </div>
         <div class="header-button">
-          <%= link_to "ステータスを変更する", "#" %>
+          <%= link_to "ステータスを変更する", edit_skill_path(@skill) %>
         </div>
         <div class="header-button">
           <%= link_to "レベル更新を申請する", "#" %>
@@ -60,6 +60,12 @@
             <!-- 投稿した時刻を出力する -->
             <%= l tweet.created_at %>
           </div>
+          <% if current_user == @skill.user%>
+          <div class="tweet-date">
+            <!-- 削除ボタン -->
+            <%= link_to "削除", skill_tweet_path(@skill, tweet), data: { turbo_method: :delete } %>
+          </div>
+          <% end %>
         </div>
         <div class="lower-tweet">
           <div class="tweet-text">
