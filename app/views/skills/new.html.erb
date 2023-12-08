@@ -1,0 +1,8 @@
+スキルを登録してください
+<%=form_with model: @skill, local: true do |f|%>
+  <%= f.label :skill_name, :スキル名 %><br>
+  <%= f.text_field :skill_name, placeholder: 'スキル名を入力してください'%><br>
+  <%= f.label :skill_status, :ステータス %><br>
+  <%= f.collection_select(:skill_status_id, SkillStatus.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %><br>
+  <%= f.submit "登録する" %>
+<% end %>

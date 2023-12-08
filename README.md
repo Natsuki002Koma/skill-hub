@@ -20,11 +20,14 @@
 
 ## skills テーブル
 
-| Column         | Type       | Options                            |
-| -------------- | ---------- | ---------------------------------- |
-| skill_name     | string     | null: false                        |
-| skill_status   | string     | null: false, unique: true          |
-| user           | references | null: false, foreign_key: true |
+| Column          | Type       | Options                            |
+| --------------- | ---------- | ---------------------------------- |
+| skill_name      | string     | null: false                        |
+| skill_status_id | string     | null: false                        |
+| skill_level     | integer    |                                    |
+| user            | references | null: false, foreign_key: true     |
+
+ActiveHash: skill_status
 
 ### Association
 

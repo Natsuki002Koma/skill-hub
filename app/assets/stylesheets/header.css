@@ -1,0 +1,49 @@
+.head-items{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  width: 100vw;
+  background-color: #e6e6fa;
+}
+
+a {
+  text-decoration: none;
+  color: #696969;
+}
+
+.head-left{
+  display: flex;
+}
+
+.logo{
+  width: 300px;
+  font-size: 50px;
+  padding-left: 20px;
+  line-height: 80px;
+}
+
+.head-nemu{
+  display: flex;
+  align-items: center;
+}
+.login{
+  display: flex;
+  align-items: center;
+}
+.login-btn a {
+  height: 40px;
+  width: 100px;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
+  background-color: white;
+}
+
+.login-text a {
+  height: 40px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
+}
