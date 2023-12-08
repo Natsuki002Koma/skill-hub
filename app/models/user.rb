@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :skills
+  has_many :tweets
 
   validates :last_name, presence: true
   validates :first_name, presence: true
