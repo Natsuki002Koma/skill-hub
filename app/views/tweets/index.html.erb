@@ -1,0 +1,87 @@
+<%= render "shared/header" %>
+<div class="wrapper">
+
+<!-- 左メニュー -->
+  <div class="left_side">
+    <div class="left_header">
+      <div class="left_header-title"><%= current_user.first_name %>さんの<br>スキル一覧
+      </div>
+      <div class="create-skill">
+        <%= link_to "スキルを登録する", new_skill_path %>
+      </div>
+    </div>
+
+    <div class="skills">
+      <% current_user.skills.each do |skill|%>
+        <div class="skill">
+          <div class="skill-name">
+            <%= link_to skill.skill_name, skill_tweets_path(skill) %>
+          </div>
+          <div class="skill-status">
+            <%= skill.skill_status.name %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+<!-- 右側部分（ヘッダー） -->
+  <div class="right_side">
+    <div class="main_header">
+      <div class="main_left-header">
+        <div class="header-title">
+          <%= @skill.skill_name %>
+        </div>
+      </div>
+      <div class="main_right-header">
+        <div class="main_right-text">
+          ステータス  ：<%= @skill.skill_status.name %><br>
+          <%# <%= @skill.stars %>スキルレベル：★☆☆☆☆
+        </div>
+        <div class="header-button">
+          <%= link_to "ステータスを変更する", "#" %>
+        </div>
+        <div class="header-button">
+          <%= link_to "レベル更新を申請する", "#" %>
+        </div>
+      </div>
+    </div>
+
+<!-- 右側部分（メッセージ） -->
+    <div class="tweets">
+      <% @tweets.each do |tweet|%>
+      <div class="tweet">
+        <div class="upper-tweet">
+          <div class="tweet-user">
+            <!-- 投稿したユーザー名情報を出力する -->
+            <%= tweet.user.last_name %><%= tweet.user.first_name %>
+          </div>
+          <div class="tweet-date">
+            <!-- 投稿した時刻を出力する -->
+            <%= l tweet.created_at %>
+          </div>
+        </div>
+        <div class="lower-tweet">
+          <div class="tweet-text">
+            <!-- 投稿したメッセージ内容を記述する -->
+            <%= tweet.text %>
+          </div>
+          <%= image_tag tweet.image.variant(resize: '400x400'), class: 'tweet-image' if tweet.image.attached? %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+<!-- 右側部分（フォーム） -->
+    <%= form_with model: [@skill, @tweet], class: 'form', local: true do |f| %>
+    <div class="form-input">
+      <%= f.text_field :text, class: 'form-message', placeholder: 'type a message' %>
+      <label class="form-image">
+        <span class="image-file">画像</span>
+        <%= f.file_field :image, class: 'hidden' %>
+      </label>
+    <%= f.submit '送信', class: 'form-submit' %>
+    </div>
+    <% end %>
+  </div>
+</div>
