@@ -11,8 +11,20 @@ class SkillsController < ApplicationController
     if @skill.save
       redirect_to root_path
     else
-      puts @skill.errors.full_messages
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @skill = Skill.find(params[:id])
+  end
+
+  def update
+    @skill = Skill.find(params[:id])
+    if @skill.update(skill_params)
+      redirect_to skill_tweets_path(@skill)
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
