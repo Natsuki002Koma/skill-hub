@@ -4,7 +4,7 @@
 <!-- 左メニュー -->
   <div class="left_side">
     <div class="left_header">
-      <div class="left_header-title">スキル一覧
+      <div class="left_header-title"><%= current_user.first_name %>さんの<br>スキル一覧
       </div>
       <div class="create-skill">
         <%= link_to "スキルを登録する", new_skill_path %>
@@ -15,7 +15,7 @@
       <% current_user.skills.each do |skill|%>
         <div class="skill">
           <div class="skill-name">
-            <%= link_to skill.skill_name, "#" %>
+            <%= link_to skill.skill_name, skill_tweets_path(skill.id) %>
           </div>
           <div class="skill-status">
             <%= skill.skill_status.name %>
@@ -28,70 +28,12 @@
 <!-- 右側部分（ヘッダー） -->
   <div class="right_side">
     <div class="main_header">
-      <div class="main_left-header">
-        <div class="header-title">
-          <%# <%= @skill.name %>Ruby
-        </div>
-      </div>
-      <div class="main_right-header">
-        <div class="main_right-text">
-          <%# <%= @skill.status %>ステータス  ：勉強中<br>
-          <%# <%= @skill.stars %>スキルレベル：★☆☆☆☆
-        </div>
-        <div class="header-button">
-          <%= link_to "ステータスを変更する", "#" %>
-        </div>
-        <div class="header-button">
-          <%= link_to "レベル更新を申請する", "#" %>
-        </div>
-      </div>
     </div>
 
 <!-- 右側部分（メッセージ） -->
     <div class="tweets">
-      <div class="tweet">
-        <div class="upper-tweet">
-          <div class="tweet-user">
-            <!-- 投稿したユーザー名情報を出力する -->
-            <%# <%= tweet.user.name %>tanaka
-          </div>
-          <div class="tweet-date">
-            <!-- 投稿した時刻を出力する -->
-            <%# <%= l tweet.created_at %>2023/2/12
-          </div>
-        </div>
-        <div class="lower-tweet">
-          <div class="tweet-text">
-            <!-- 投稿したメッセージ内容を記述する -->
-            <%# <%= tweet.text %>頑張りました。
-          </div>
-          <%# <%= image_tag message.image.variant(resize: '500x500'), class: 'message-image' if message.image.attached? %>
-        </div>
-      </div>
-      <div class="tweet">
-        <div class="upper-tweet">
-          <div class="tweet-user">tanaka
-          </div>
-          <div class="tweet-date">2023/2/12
-          </div>
-        </div>
-        <div class="lower-tweet">
-          <div class="tweet-text">頑張りました。
-          </div>
-        </div>
-      </div>
+     ← 左メニューからスキルを選択してください。
     </div>
 
-<!-- 右側部分（フォーム） -->
-    <%# <%= form_with model: [@room, @message], class: 'form', local: true do |f| %>
-    <div class="form-input">
-      <%# <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
-      <label class="form-image">
-        <span class="image-file">画像</span>
-        <%# <%= f.file_field :image, class: 'hidden' %>
-      </label>
-    </div>
-    <%# <%= f.submit '送信', class: 'form-submit' %>
-    <%# <% end %>
   </div>
 </div>

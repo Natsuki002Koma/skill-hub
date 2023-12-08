@@ -89,6 +89,9 @@
   margin-top: 36px;
 }
 
+.left_header-title{
+  line-height: 30px;
+}
 .main_right-text{
 line-height: 30px;
 color: #333;
@@ -156,12 +159,14 @@ color: #333;
   height: 50px;
   width: 100%;
   padding-left: 10px;
+  border: 1px solid #a9a9a9;
+  border-radius: 5px;
 }
 
 .form-submit {
-  background-color: #38AEF0;
+  background-color: #d8bfd8;
   border: none;
-  color: white;
+  color: #000000;
   font-size: 16px;
   height: 50px;
   margin-left: 15px;
@@ -170,8 +175,8 @@ color: #333;
 
 .form-image {
   font-size: 12px;
-  background-color: lightblue;
-  color: white;
+  background-color: #e6e6fa;
+  color: #696969;
   padding: 12px;
   width: 60px;
   margin: 5px 10px;
