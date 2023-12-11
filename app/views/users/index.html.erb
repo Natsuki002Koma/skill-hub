@@ -1,0 +1,26 @@
+<%= render "shared/header" %>
+<div class="user_header">ユーザ一覧</div>
+<div class="users">
+  <% @users.each do |user|%>
+    <div class="user">
+      <div class="user-image">no_image</div>
+      <div class="user-contents">
+        <div class="user-title">NAME</div>
+        <div class="user-text"><%= "#{user.last_name} #{user.first_name}"%></div>
+        <div class="user-title">skill</div>
+        <div class="user-elements">
+          <% user.skills.each do |skill|%>
+            <div class="user-element">
+              <%= link_to skill.skill_name, skill_tweets_path(skill) %>
+            </div>
+          <% end %>
+        </div>
+        <div class="user-title">project</div>
+        <div class="user-elements">
+          <div class="user-element">A株式会社様サービス導入</div>
+          <div class="user-element">BBサイト機能改善</div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

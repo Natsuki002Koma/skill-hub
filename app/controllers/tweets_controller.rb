@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
   def index
     @skill = Skill.find(params[:skill_id])
+    @user = @skill.user
     @tweet = Tweet.new
     @tweets = @skill.tweets.includes(:user)
   end
