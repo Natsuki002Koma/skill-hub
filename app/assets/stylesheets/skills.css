@@ -75,7 +75,7 @@
   padding: 0 40px;
   display: flex;
   justify-content: space-between;
-  background-color: white;
+  background-color: #808080;
 }
 
 .main_right-header{
@@ -84,7 +84,7 @@
 }
 
 .header-title {
-  color: #333;
+  color: #FFFFFF;
   font-size: 24px;
   margin-top: 36px;
 }
@@ -94,7 +94,7 @@
 }
 .main_right-text{
 line-height: 30px;
-color: #333;
+color: #FFFFFF;
 }
 
 .header-button a {
@@ -103,6 +103,7 @@ color: #333;
   color: darkred;
   padding: 20px;
   margin-left: 20px;
+  background-color: #FFFFFF;
 }
 
 
