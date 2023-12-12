@@ -9,7 +9,6 @@ class SkillStatus < ActiveHash::Base
     { id: 7, name: 'その他' }
   ]
 
- include ActiveHash::Associations
+  include ActiveHash::Associations
   has_many :skills
-
-  end
+end
