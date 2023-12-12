@@ -1,9 +1,16 @@
 <%= render "shared/header" %>
-スキルを登録してください
-<%=form_with model: @skill, local: true do |f|%>
-  <%= f.label :skill_name, :スキル名 %><br>
-  <%= f.text_field :skill_name, placeholder: 'スキル名を入力してください'%><br>
-  <%= f.label :skill_status, :ステータス %><br>
-  <%= f.collection_select(:skill_status_id, SkillStatus.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %><br>
-  <%= f.submit "登録する" %>
-<% end %>
+<div class="skill_header">新しいスキルを登録してください</div>
+<div class="skill_new">
+  <%=form_with model: @skill, local: true do |f|%>
+    <div class="skill_new-form">
+      <div class="form-label"><%= f.label :skill_name, :スキル名 %></div>
+      <%= f.text_field :skill_name, placeholder: 'スキル名を入力してください', class: 'form-box' %>
+      <div class="form-label"><%= f.label :skill_status, :ステータス %></div>
+      <%= f.collection_select(:skill_status_id, SkillStatus.all, :id, :name, {}, {class:"form-box", id:"item-category"}) %><br>
+      <div class="form-label">スキルレベル（★0～5）<br>
+      ※スキルレベルの変更には管理者の申請が必要です。</div>
+      <div class="form-text"><%= "★0" %></div>
+      <%= f.submit "登録する", class: 'form-submit' %>
+    </div>
+  <% end %>
+</div>

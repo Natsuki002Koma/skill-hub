@@ -1,45 +1,36 @@
-<h2>Sign up</h2>
+<%= render "shared/header" %>
+<div class="skill_header">ユーザ新規登録</div>
+<div class="users">
+  <div class="skill_new-form">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="form-label"><%= f.label :last_name  %></div>
+        <%= f.text_area :last_name, autofocus: true, autocomplete: "last_name", placeholder:"例) 山田", class: 'form-box' %>
 
-  <div class="field">
-    <%= f.label :last_name  %><br />
-    <%= f.text_area :last_name, autofocus: true, autocomplete: "last_name", placeholder:"例) 山田" %>
+      <div class="form-label"><%= f.label :first_name %></div>
+        <%= f.text_area :first_name, autofocus: true, autocomplete: "first_name", placeholder:"例) 太郎", class: 'form-box' %>
+
+      <div class="form-label"><%= f.label :入社年月日 %></div>
+        <%= f.date_select :hire_date, autocomplete: "hire_date",start_year: 1980, class: 'form-box' %>
+
+      <div class="form-label"><br><%= f.label :Emailアドレス %></div>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-box' %>
+
+      <div class="form-label"><%= f.label :パスワード %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <% end %></div>
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-box' %>
+      
+
+      <div class="form-label"><%= f.label :パスワード（確認） %></div>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-box' %>
+      
+      <div class="actions">
+        <%= f.submit "新規登録", class: 'form-submit' %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_area :first_name, autofocus: true, autocomplete: "first_name", placeholder:"例) 太郎" %>
-  </div>
-
-  <div class="field">
-    <label>入社年月日</label>
-    <%= f.label :hire_date %><br />
-    <%= f.date_select :hire_date, autocomplete: "hire_date" %>
-
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <br><%= render "devise/shared/links" %>
+</div>

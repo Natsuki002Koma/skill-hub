@@ -6,9 +6,11 @@
     <div class="left_header">
       <div class="left_header-title"><%= "#{@user.first_name} さんの" %><br>スキル一覧
       </div>
-      <div class="create-skill">
-        <%= link_to "スキル登録", new_skill_path %>
-      </div>
+      <% if current_user == @skill.user%>
+        <div class="create-skill">
+          <%= link_to "スキル登録", new_skill_path %>
+        </div>
+      <% end %>
     </div>
 
     <div class="skills">
@@ -38,12 +40,14 @@
           ステータス  ：<%= @skill.skill_status.name %><br>
           <%# <%= @skill.stars %>スキルレベル：★☆☆☆☆
         </div>
-        <div class="header-button">
-          <%= link_to "ステータスを変更する", edit_skill_path(@skill) %>
-        </div>
-        <div class="header-button">
-          <%= link_to "レベル更新を申請する", "#" %>
-        </div>
+        <% if current_user == @skill.user%>
+          <div class="header-button">
+            <%= link_to "ステータスを変更する", edit_skill_path(@skill) %>
+          </div>
+          <div class="header-button">
+            <%= link_to "レベル更新を申請する", "#" %>
+          </div>
+        <% end %>
       </div>
     </div>
 
