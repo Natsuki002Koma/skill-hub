@@ -4,23 +4,21 @@
 <!-- 左メニュー -->
   <div class="left_side">
     <div class="left_header">
-      <div class="left_header-title"><%= "#{@user.first_name} さんの" %><br>スキル一覧
+      <div class="left_header-title"><%= "#{current_user.first_name} さんの" %><br>プロジェクト一覧
       </div>
-      <% if current_user == @skill.user%>
         <div class="create-skill">
-          <%= link_to "スキル登録", new_skill_path %>
+          <%= link_to "プロジェクト登録", new_project_path %>
         </div>
-      <% end %>
     </div>
 
     <div class="skills">
-      <% @user.skills.each do |skill|%>
+      <% current_user.projects.each do |project|%>
         <div class="skill">
           <div class="skill-name">
-            <%= link_to skill.skill_name, skill_tweets_path(skill) %>
+            <%= link_to project.project_name, project_messages_path(project) %>
           </div>
           <div class="skill-status">
-            <%= skill.skill_status.name %>
+            <%#<%= project.project_status.name %>50％
           </div>
         </div>
       <% end %>
@@ -32,63 +30,61 @@
     <div class="main_header">
       <div class="main_left-header">
         <div class="header-title">
-          <%= @skill.skill_name %>
+          <%= @project.project_name %>
         </div>
       </div>
       <div class="main_right-header">
         <div class="main_right-text">
-          ステータス  ：<%= @skill.skill_status.name %><br>
-          <%# <%= @skill.stars %>スキルレベル：★☆☆☆☆
+          概要  ：<%= @project.description %><br>
+          <%# <%= @skill.stars %>進捗率：50％
         </div>
-        <% if current_user == @skill.user%>
-          <div class="header-button">
-            <%= link_to "ステータスを変更する", edit_skill_path(@skill) %>
-          </div>
-          <div class="header-button">
-            <%= link_to "レベル更新を申請する", "#" %>
-          </div>
-        <% end %>
+        <div class="header-button">
+          <%= link_to "編集", edit_project_path(@project) %>
+        </div>
+        <div class="header-button">
+          <%= link_to "日程調整", "#" %>
+        </div>
       </div>
     </div>
 
 <!-- 右側部分（メッセージ） -->
     <div class="tweets">
-      <% @tweets.each do |tweet|%>
+      <% @messages.each do |message|%>
       <div class="tweet">
         <div class="upper-tweet">
           <div class="tweet-user">
             <!-- 投稿したユーザー名情報を出力する -->
-            <%= tweet.user.last_name %><%= tweet.user.first_name %>
+            <%= message.user.full_name %>
           </div>
           <div class="tweet-date">
             <!-- 投稿した時刻を出力する -->
-            <%= l tweet.created_at %>
+            <%= l message.created_at %>
           </div>
-          <% if current_user == tweet.user%>
+          <% if current_user == message.user%>
           <div class="tweet-date">
             <!-- 削除ボタン -->
-            <%= link_to "削除", skill_tweet_path(@skill, tweet), data: { turbo_method: :delete } %>
+            <%= link_to "削除", project_message_path(@project, message), data: { turbo_method: :delete } %>
           </div>
           <% end %>
         </div>
         <div class="lower-tweet">
           <div class="tweet-text">
             <!-- 投稿したメッセージ内容を記述する -->
-            <%= tweet.text %>
+            <%= message.content %>
           </div>
-          <%= image_tag tweet.image.variant(resize: '400x400'), class: 'tweet-image' if tweet.image.attached? %>
+          <%#<%= image_tag tweet.image.variant(resize: '400x400'), class: 'tweet-image' if tweet.image.attached? %>
         </div>
       </div>
       <% end %>
     </div>
 
 <!-- 右側部分（フォーム） -->
-    <%= form_with model: [@skill, @tweet], class: 'form', local: true do |f| %>
+    <%= form_with model: [@project, @message], class: 'form', local: true do |f| %>
     <div class="form-input">
-      <%= f.text_field :text, class: 'form-message', placeholder: 'type a message' %>
+      <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
       <label class="form-image">
-        <span class="image-file">画像</span>
-        <%= f.file_field :image, class: 'hidden' %>
+        <span class="image-file">添付</span>
+        <%# <%= f.file_field :image, class: 'hidden' %>
       </label>
     <%= f.submit '送信', class: 'form-submit' %>
     </div>
