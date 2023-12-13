@@ -1,0 +1,26 @@
+<%= render "shared/header" %>
+<div class="skill_header">新規プロジェクトを登録してください</div>
+<div class="skill_new">
+  <%=form_with model: @project, local: true do |f|%>
+    <div class="skill_new-form">
+      <div class="form-label"><%= f.label :project_name, :プロジェクト名 %></div>
+      <%= f.text_field :project_name, placeholder: 'プロジェクト名を入力してください', class: 'form-box' %>
+      <div class="form-label"><%= f.label :description, :プロジェクト概要 %></div>
+      <%= f.text_area :description, placeholder: 'プロジェクトの概要を入力してください', rows: "10", class: 'form-box' %>
+      <div class="form-label"><%= f.label :user_ids, :アサインするユーザーを選択してください %></div>
+      <% if @users.present? %>
+        <select name="project[user_ids][]">
+          <option value=""></option>
+          <% @users.each do |user| %>
+            <option value=<%= user.id %>><%= user.full_name %></option>
+          <% end %> 
+        </select>
+      <% else %>
+        <p>アサインできるユーザーがいません。</p>
+      <% end %>
+        <input name="project[user_ids][]" type="hidden" value=<%= current_user.id %>>
+
+      <div class="form-label"><br><%= f.submit "登録する", class: 'form-submit' %></div>
+    </div>
+  <% end %>
+</div>

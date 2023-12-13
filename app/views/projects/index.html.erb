@@ -1,0 +1,39 @@
+<%= render "shared/header" %>
+<div class="wrapper">
+
+<!-- 左メニュー -->
+  <div class="left_side">
+    <div class="left_header">
+      <div class="left_header-title"><%= current_user.first_name %> さんの<br>プロジェクト一覧
+      </div>
+      <div class="create-skill">
+        <%= link_to "プロジェクト登録", new_project_path %>
+      </div>
+    </div>
+
+    <div class="skills">
+      <% current_user.projects.each do |project|%>
+        <div class="skill">
+          <div class="skill-name">
+            <%= link_to project.project_name, project_messages_path(project.id) %>
+          </div>
+          <div class="skill-status">
+            <%#<%= project.skill_status.name %>50%
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+<!-- 右側部分（ヘッダー） -->
+  <div class="right_side">
+    <div class="main_header">
+    </div>
+
+<!-- 右側部分（メッセージ） -->
+    <div class="tweets">
+     ← 左メニューからプロジェクトを選択してください。
+    </div>
+
+  </div>
+</div>
