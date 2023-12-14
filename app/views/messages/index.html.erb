@@ -3,7 +3,7 @@
 
 <!-- 左メニュー -->
   <div class="left_side">
-    <div class="left_header">
+    <div class="left_header-message">
       <div class="left_header-title"><%= "#{current_user.first_name} さんの" %><br>プロジェクト一覧
       </div>
         <div class="create-skill">
@@ -27,7 +27,7 @@
 
 <!-- 右側部分（ヘッダー） -->
   <div class="right_side">
-    <div class="main_header">
+    <div class="main_header-message">
       <div class="main_left-header">
         <div class="header-title">
           <%= @project.project_name %>
@@ -50,7 +50,11 @@
 <!-- 右側部分（メッセージ） -->
     <div class="tweets">
       <% @messages.each do |message|%>
+      <% if current_user == message.user%>
+      <div class="right-tweet">
+      <% elsif %>
       <div class="tweet">
+      <% end %>
         <div class="upper-tweet">
           <div class="tweet-user">
             <!-- 投稿したユーザー名情報を出力する -->

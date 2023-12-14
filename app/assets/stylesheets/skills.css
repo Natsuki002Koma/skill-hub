@@ -115,10 +115,18 @@ color: #FFFFFF;
 }
 
 .tweet {
-  width: 950px;
+  width: 750px;
   margin: 0 0 15px 0;
   background-color: white;
   padding: 20px;
+}
+
+.right-tweet {
+  width: 750px;
+  margin: 0 0 15px 0;
+  background-color: #fffafa;
+  padding: 20px;
+  margin-left: auto;
 }
 
 .upper-tweet{

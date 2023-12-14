@@ -54,7 +54,11 @@
 <!-- 右側部分（メッセージ） -->
     <div class="tweets">
       <% @tweets.each do |tweet|%>
+      <% if current_user == tweet.user%>
+      <div class="right-tweet">
+      <% elsif %>
       <div class="tweet">
+      <% end %>
         <div class="upper-tweet">
           <div class="tweet-user">
             <!-- 投稿したユーザー名情報を出力する -->

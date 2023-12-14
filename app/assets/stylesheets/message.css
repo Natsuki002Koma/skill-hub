@@ -1,0 +1,25 @@
+.left_header-message {
+  height: 100px;
+  padding: 0 20px;
+  background-color: #cd5c5c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main_header-message {
+  height: 100px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f08080;
+}
+
+.skill_header-message{
+  height: 100px;
+  padding: 20px;
+  background-color: #f08080;
+  color: #FFFFFF;
+  font-size: 30px;
+  line-height: 60px;
+}
