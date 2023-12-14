@@ -10,7 +10,7 @@
         <div class="user-title">skill</div>
         <div class="user-elements">
           <% user.skills.each do |skill|%>
-            <div class="user-element">
+            <div class="user-element-btn">
               <%= link_to skill.skill_name, skill_tweets_path(skill) %>
             </div>
           <% end %>

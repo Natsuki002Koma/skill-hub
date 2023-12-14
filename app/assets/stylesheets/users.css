@@ -40,7 +40,14 @@
   padding: 10px 0 10px 20px;
 }
 
-.user-element{
+.user-element {
+  background-color: #fff0f5;
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.user-element-btn {
   background-color: #fffacd;
   border-radius: 5px;
   padding: 5px;
