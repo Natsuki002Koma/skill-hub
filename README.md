@@ -55,7 +55,6 @@ image:ActiveStorageを用いて実装
 | ------------ | ---------- | ------------------------------ |
 | project_name | string     | null: false                    |
 | description  | text       | null: false                    |
-| user         | references | null: false, foreign_key: true |
 
 ファイル投稿機能を実装
 
@@ -71,21 +70,6 @@ image:ActiveStorageを用いて実装
 | --------- | ---------- | ------------------------------ |
 | user      | references | null: false, foreign_key: true |
 | project   | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :project
-- belongs_to :user
-
-## messages テーブル(phase2)
-
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| content      | string     | null: false                    |
-| project      | references | null: false, foreign_key: true |
-| user         | references | null: false, foreign_key: true |
-
-ファイル投稿機能を実装
 
 ### Association
 

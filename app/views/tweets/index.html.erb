@@ -14,7 +14,7 @@
     </div>
 
     <div class="skills">
-      <% current_user.skills.each do |skill|%>
+      <% @user.skills.each do |skill|%>
         <div class="skill">
           <div class="skill-name">
             <%= link_to skill.skill_name, skill_tweets_path(skill) %>
@@ -54,7 +54,11 @@
 <!-- 右側部分（メッセージ） -->
     <div class="tweets">
       <% @tweets.each do |tweet|%>
+      <% if current_user == tweet.user%>
+      <div class="right-tweet">
+      <% elsif %>
       <div class="tweet">
+      <% end %>
         <div class="upper-tweet">
           <div class="tweet-user">
             <!-- 投稿したユーザー名情報を出力する -->
@@ -64,7 +68,7 @@
             <!-- 投稿した時刻を出力する -->
             <%= l tweet.created_at %>
           </div>
-          <% if current_user == @skill.user%>
+          <% if current_user == tweet.user%>
           <div class="tweet-date">
             <!-- 削除ボタン -->
             <%= link_to "削除", skill_tweet_path(@skill, tweet), data: { turbo_method: :delete } %>

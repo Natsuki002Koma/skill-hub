@@ -6,7 +6,7 @@
       <div class="user-image">no_image</div>
       <div class="user-contents">
         <div class="user-title">NAME</div>
-        <div class="user-text"><%= "#{user.last_name} #{user.first_name}"%></div>
+        <div class="user-text"><%= user.full_name%></div>
         <div class="user-title">skill</div>
         <div class="user-elements">
           <% user.skills.each do |skill|%>
@@ -17,8 +17,11 @@
         </div>
         <div class="user-title">project</div>
         <div class="user-elements">
-          <div class="user-element">A株式会社様サービス導入</div>
-          <div class="user-element">BBサイト機能改善</div>
+          <% user.projects.each do |project|%>
+            <div class="user-element">
+              <%= project.project_name %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

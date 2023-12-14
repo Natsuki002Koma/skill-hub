@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   resources :skills, only:[:index, :new, :create, :edit, :update] do
     resources :tweets, only:[:index, :create, :destroy]
   end
+  resources :projects, only:[:index, :new, :create, :edit, :update] do
+    resources :messages, only:[:index, :create, :destroy]
+  end
 end

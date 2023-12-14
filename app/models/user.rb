@@ -6,8 +6,14 @@ class User < ApplicationRecord
 
   has_many :skills
   has_many :tweets
+  has_many :project_users
+  has_many :projects, through: :project_users
 
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :hire_date, presence: true
+  
+  def full_name
+    "#{last_name} #{first_name}"
+  end
 end
