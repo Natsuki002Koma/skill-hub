@@ -2,6 +2,8 @@
 <div class="skill_header">新しいスキルを登録してください</div>
 <div class="skill_new">
   <%=form_with model: @skill, local: true do |f|%>
+    <%= render "shared/error_messages", model: @skill %>
+
     <div class="skill_new-form">
       <div class="form-label"><%= f.label :skill_name, :スキル名 %></div>
       <%= f.text_field :skill_name, placeholder: 'スキル名を入力してください', class: 'form-box' %>
