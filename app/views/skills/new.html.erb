@@ -10,7 +10,8 @@
       <div class="form-label"><%= f.label :skill_status, :ステータス %></div>
       <%= f.collection_select(:skill_status_id, SkillStatus.all, :id, :name, {}, {class:"form-box", id:"item-category"}) %><br>
       <div class="form-label">スキルレベル（★0～5）<br>
-      ※スキルレベルの変更には管理者の申請が必要です。</div>
+      　※初期登録時のスキルレベルは0です。<br>
+      　※スキルレベルの変更には管理者の申請が必要です。</div>
       <div class="form-text"><%= "★0" %></div>
       <%= f.submit "登録する", class: 'form-submit' %>
     </div>
