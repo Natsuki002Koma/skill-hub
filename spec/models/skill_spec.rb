@@ -5,7 +5,6 @@ RSpec.describe Skill, type: :model do
     user = FactoryBot.create(:user)
     @skill = FactoryBot.build(:skill, user_id: user.id)
   end
-
   describe 'スキル新規作成' do
     context '新規作成できる場合' do
       it "すべての項目に正しく入力すれば新規作成できる" do
