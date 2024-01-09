@@ -11,6 +11,7 @@ RSpec.describe Skill, type: :model do
         expect(@skill).to be_valid
       end
       
+      
     end
     context '新規作成できない場合' do
       it "skill_nameが空では作成できない" do
