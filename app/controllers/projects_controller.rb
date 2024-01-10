@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   def index
   end
-  
+
   def new
     @project = Project.new
     @users = User.where.not(id: current_user.id)
