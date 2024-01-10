@@ -2,6 +2,8 @@
 <div class="skill_header-message">新規プロジェクトを登録してください</div>
 <div class="skill_new">
   <%=form_with model: @project, local: true do |f|%>
+    <%= render "shared/error_messages", model: @project %>
+
     <div class="skill_new-form">
       <div class="form-label"><%= f.label :project_name, :プロジェクト名 %></div>
       <%= f.text_field :project_name, placeholder: 'プロジェクト名を入力してください', class: 'form-box' %>
