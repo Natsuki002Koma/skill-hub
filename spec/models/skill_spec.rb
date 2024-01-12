@@ -22,12 +22,12 @@ RSpec.describe Skill, type: :model do
         @skill.valid?
         expect(@skill.errors.full_messages).to include("Skill status can't be blank")
       end
-      it 'skill_status_idが2～7以外では作成できない' do
-        @skill.skill_status_id = '8'
+      it 'skill_status_idが「---」では作成できない' do
+        @skill.skill_status_id = '1'
         @skill.valid?
         expect(@skill.errors.full_messages).to include("Skill status can't be blank")
       end
-      it 'userと紐づていなければ作成できない' do
+      it 'userと紐づいていなければ作成できない' do
         @skill.user = nil
         @skill.valid?
         expect(@skill.errors.full_messages).to include('User must exist')
