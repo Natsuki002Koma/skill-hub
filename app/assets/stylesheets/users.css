@@ -53,3 +53,12 @@
   padding: 5px;
   margin-right: 5px;
 }
+
+.schedule_header{
+  height: 100px;
+  padding: 20px;
+  background-color: #b0c4de;
+  color: #696969;
+  font-size: 30px;
+  line-height: 60px;
+}

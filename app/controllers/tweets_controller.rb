@@ -8,6 +8,7 @@ class TweetsController < ApplicationController
 
   def create
     @skill = Skill.find(params[:skill_id])
+    @user = @skill.user
     @tweet = @skill.tweets.new(tweet_params)
     if @tweet.save
       redirect_to skill_tweets_path(@skill)

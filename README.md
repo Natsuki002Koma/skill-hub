@@ -161,11 +161,11 @@ image:ActiveStorageを用いて実装
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| date_id      | integer    | null: false                    |
+| date         | date       | null: false                    |
 | time_id      | integer    | null: false                    |
 | user         | references | null: false, foreign_key: true |
 
-ActiveHash: date, time
+ActiveHash: time
 
 ### Association
 

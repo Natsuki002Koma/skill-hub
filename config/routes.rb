@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :projects, only:[:index, :new, :create, :edit, :update] do
     resources :messages, only:[:index, :create, :destroy]
   end
+  resources :schedules, only: [:index]
 end
