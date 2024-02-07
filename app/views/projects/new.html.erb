@@ -11,18 +11,13 @@
       <%= f.text_area :description, placeholder: 'プロジェクトの概要を入力してください', rows: "10", class: 'form-box' %>
       <div class="form-label"><%= f.label :user_ids, :アサインするユーザーを選択してください %></div>
       <% if @users.present? %>
-        <select name="project[user_ids][]">
+        <select name="project[user_ids][]" id="userSelect">
           <option value=""></option>
           <% @users.each do |user| %>
             <option value=<%= user.id %>><%= user.full_name %></option>
           <% end %> 
         </select><br>
-        <select name="project[user_ids][]">
-          <option value=""></option>
-          <% @users.each do |user| %>
-            <option value=<%= user.id %>><%= user.full_name %></option>
-          <% end %> 
-        </select>
+        <div class="formbutton"><button type="button" id="addUserButton">ユーザーを追加する</button></div>
       <% else %>
         <p>アサインできるユーザーがいません。</p>
       <% end %>
